@@ -191,8 +191,6 @@
                 for(let[title, info] of Object.entries(artwork)){
                     $("#artwork-table").append(`
                         <div class="row mx-5">
-                            <h1>`+title+`</h1>
-                        </div>
                     `);
                     for(let i = 1; i <= info[0]; i++){
                         console.log(info[1].replace("REPLACE", i));
@@ -200,6 +198,7 @@
                             <img class="col-xs-3 img-thumbnail text-center" src="`+info[1].replace("REPLACE", i)+`"/>
                         `);
                     }
+                    $("#artwork-table").append(`</div>`);
                 }
             });
 
