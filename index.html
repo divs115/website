@@ -12,10 +12,10 @@
             *{
                 margin: 1%;
             }
-            #nav{
+            #projects{
                 font-size: 3em;
             }
-             #projects, #resume, #artwork{
+            #resume, #artwork{
                 display: none;
                 font-size: 3em;
             }
@@ -57,7 +57,8 @@
 
         <script type="text/javascript">
 
-            let screens = ["nav", "projects", "resume", "artwork"];
+
+            let screens = ["projects", "resume", "artwork"];
             let front_end = {
                 "CERC Map"                   : "https://codepen.io/Intelli/full/zYYbQjM",
                 "DNQ Form"                   : "https://codepen.io/Intelli/full/RwwePEY",
@@ -111,9 +112,9 @@
                         `The goal of this game is to guess the secret word picked by the computer using only 6 guesses. In the evil version, the computer changes the secret word that corresponds to the correct as well as your wrong guesses for more of a challenge. Have fun playing!`, 
                         "https://github.com/divs115/website/blob/master/assets/programming/Hangman.jar", 
                         `</strong> Normal: <br>
-                        &emsp; &emsp; &emsp; <strong> java -jar Hangman.jar Dictionary.txt</strong><br>
-                        &emsp; &emsp; Evil:  <br>
-                        &emsp; &emsp; &emsp; <Strong> java -jar Hangman.jar Dictionary.txt evil </strong>`, 
+                        &emsp; java -jar Hangman.jar Dictionary.txt <br>
+                         Evil:  <br>
+                        &emsp; java -jar Hangman.jar Dictionary.txt evil`, 
                         "https://raw.githubusercontent.com/divs115/website/master/assets/images/hangman.jpg" 
                 ],
                 
@@ -212,13 +213,20 @@
 
         <!----------------------- HTML ------------------->
 
-        
-        <h1 onclick = "changeScreen('nav')"> divya komaravolu </h1>
+        <!-- 
+        <nav class="navbar navbar-light bg-light justify-content-between">
+          <a class="navbar-brand">Navbar</a>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav> -->
 
-        <div id="nav">
-            <button onclick = "changeScreen('projects')"> projects  </button> <br>
-            <button onclick = "changeScreen('artwork')"> artwork  </button> <br>
-            <button onclick = "changeScreen('resume')"> resume  </button>
+        <div id="nav" class="row">
+            <h1 class="col-sm-3 heading" > Divya Komaravolu </h1>
+            <button onclick = "changeScreen('projects')" class="col-sm-3 nav_btn"> projects  </button> 
+            <button onclick = "changeScreen('artwork')" class="col-sm-3 nav_btn"> artwork  </button> 
+            <button onclick = "changeScreen('resume')" class="col-sm-3 nav_btn"> resume  </button>
         </div>
 
         <div id="projects">

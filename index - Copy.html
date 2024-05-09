@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Divya Komaravolu</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+            /*
+            Color palette:
+
+            B47D47 (orange in logo)
+            747B5D (green in logo)
+            916539 (dark orange border)
+            5F654D (dark green border)
+            CDA67E (light orange background)
+            */
+
+            body{
+                margin: 0;
+                padding: 0;
+                background-color: #CDA67E;
+                border: 10px solid #5F654D;
+            }
+            .header{
+                margin: 20px;
+            }
+            .flex-container {
+              padding: 0;
+              margin: 0;
+              list-style: none;
+              justify-content: center;
+              -ms-box-orient: horizontal;
+              display: -webkit-box;
+              display: -moz-box;
+              display: -ms-flexbox;
+              display: -moz-flex;
+              display: -webkit-flex;
+              display: flex;
+            }
+            .wrap    { 
+              -webkit-flex-wrap: wrap;
+              flex-wrap: wrap;
+            }  
+            .flex-item {
+              width: 600px;
+              height: 400px;
+              padding: 5px;
+              margin: 20px;
+              line-height: 100px;
+              color: white;
+              font-weight: bold;
+              font-size: 2em;
+              text-align: center;
+            }
+            .orange-item{
+              background: #B47D47;
+              border: 10px solid #916539;
+            }
+            .green-item{
+              background: #747B5D;
+              border: 10px solid #5F654D;
+            }
+            #myDIV { 
+              width: 100%;
+              height: 100%;
+              background-repeat: round;
+              background-image: url("https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"), url("https://static.wikia.nocookie.net/colors/images/8/84/1200px-Orange_colour_box.svg.png/revision/latest/scale-to-width-down/1200?cb=20231102222423");
+              background-blend-mode: multiply;
+              object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-------------------- Javascript ------------------->
+
+        <script type="text/javascript">
+
+        </script>
+
+
+        <!----------------------- HTML ------------------->
+        <div class="header">Divya Komaravolu</div>
+        <ul class="flex-container wrap">
+          
+          <li class="flex-item orange-item">
+              <div id="myDIV"></div>
+          </li>
+          <li class="flex-item green-item">2</li>
+          <li class="flex-item orange-item">3</li>
+          <li class="flex-item green-item">4</li>
+          <li class="flex-item orange-item">5</li>
+          <li class="flex-item green-item">6</li>
+          <li class="flex-item orange-item">7</li>
+          <li class="flex-item green-item">8</li>
+        </ul>
+        
+        
+        
+    </body>
+</html>
