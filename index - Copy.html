@@ -4,6 +4,7 @@
         <title>Divya Komaravolu</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
 
             /*
@@ -43,9 +44,8 @@
               flex-wrap: wrap;
             }  
             .flex-item {
-              width: 600px;
-              height: 400px;
-              padding: 5px;
+              width: 800px;
+              height: 600px;
               margin: 20px;
               line-height: 100px;
               color: white;
@@ -61,13 +61,10 @@
               background: #747B5D;
               border: 10px solid #5F654D;
             }
-            #myDIV { 
-              width: 100%;
-              height: 100%;
-              background-repeat: round;
-              background-image: url("https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"), url("https://static.wikia.nocookie.net/colors/images/8/84/1200px-Orange_colour_box.svg.png/revision/latest/scale-to-width-down/1200?cb=20231102222423");
-              background-blend-mode: multiply;
-              object-fit: cover;
+            .thumbnails img{ 
+              max-width: 100%;
+              height: auto;
+                              
             }
         </style>
     </head>
@@ -76,13 +73,121 @@
         <!-------------------- Javascript ------------------->
 
         <script type="text/javascript">
+            let screens = ["projects", "resume", "artwork"];
+            let front_end = {
+                "CERC Map"                   : ["cerc","https://codepen.io/Intelli/full/zYYbQjM"],
+                "DNQ Form"                   : ["dnq","https://codepen.io/Intelli/full/RwwePEY"],
+                "RFR Form"                   : ["rfr","https://codepen.io/Intelli/full/NgvMpE"],
+                "Demographics Table"         : ["demographics","https://codepen.io/Intelli/full/pwVoNM"],
+                "Research vs QI Form"        : ["research","https://codepen.io/Intelli/full/PojaRoe"],
+                "Contact Card Quiz"          : ["contact_card","https://codepen.io/Intelli/full/NWmZoaj"],
+                "Capacitator Bank Checklist" : ["capacitator","https://codepen.io/Intelli/full/yRLwRJ"]
+            };
 
+            let old_games = {
+                "NFrostN" : [
+                        `The NFrostN process is 
+                        specific sort of combination of "Eden model" and "Diffusion-Limited Aggregation"(DLA).The NFrostN process applies them in a way that creates
+                        seamless tiles as might be used in wallpaper, for example. The output is redirected to a .ppm(Portable Pixel Map) file which can be opened 
+                        using GIMP image manipulation program or programs of that sort. The arguments represent the following in that order: 
+                        java NFrostN [Width[Height[Density[Seed]]]]`, 
+                        "https://github.com/divs115/website/blob/master/assets/programming/NFrostN.class", 
+                        `java NFrostN > nfrostn.ppm </strong> <br>
+                         &nbsp For example: java NFrostN 256 256 25 0 > nfrostn.ppm
+                        `, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/NFrostN.jpg" 
+                ],
+                "GAX" : [
+                        "The goal of this game is to help the walker (yellow triangle) get to the goal (black circle) while avoiding any traps (red circle). The grey blocks will disappear if you click on them and the walker by default moves horizontally until he encounters an obstacle and changes direction. Be careful, the walker will fall downwards if there is no block underneath! Have fun playing!", 
+                        "https://github.com/divs115/website/blob/master/assets/programming/GAX.jar", 
+                        `java -jar GAX.jar advanced`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/GAX_advanced.jpg" 
+                ],
+                "Boggle" : [
+                        "The goal of this game is to make as many english words as possible given the boggle board. Have fun playing!", //Description
+                        "https://github.com/divs115/website/blob/master/assets/programming/Boggle.jar", // Download Link
+                        `java -jar Boggle.jar`, // Download Info
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/boggle.png" // Image Path
+                ],
+                "Gomoku" : [
+                        `This game is very similar to tic-tac-toe but instead of three, you have to get five in a row vertically, horizontally or diagonally to win. Have fun playing!`, 
+                        "https://github.com/divs115/website/blob/master/assets/programming/NFrostN.jar", 
+                        `java -jar Gomoku.jar COMPUTER`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/Gomoku.jpg" 
+                ],
+                "Gem Match" : [
+                        "The goal of this game is to swap two gems to make three of a kind line up in a row or column. After clicking on a gem, click on another gem next to it in either the North, South, East or West directions to swap. The score is the number of gems that have been removed from the board. Have fun playing!", 
+                        "https://github.com/divs115/website/blob/master/assets/programming/GemMatch.jar", 
+                        `java -jar GemMatch.jar`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/gemMatch.PNG" 
+                ],
+                            
+                
+                "Evil Hangman" : [
+                        `The goal of this game is to guess the secret word picked by the computer using only 6 guesses. In the evil version, the computer changes the secret word that corresponds to the correct as well as your wrong guesses for more of a challenge. Have fun playing!`, 
+                        "https://github.com/divs115/website/blob/master/assets/programming/Hangman.jar", 
+                        `</strong> Normal: <br>
+                        &emsp; java -jar Hangman.jar Dictionary.txt <br>
+                         Evil:  <br>
+                        &emsp; java -jar Hangman.jar Dictionary.txt evil`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/hangman.jpg" 
+                ],
+                
+                "Dominoes" : [
+                        `Click on a tile to select it, then click on the board to place the tile. Submit your turn and wait for the computer to play. Every tile after the first one can only be played if it has a number matching one end of an existing tile or if it's blank. Have fun playing!`, 
+                        "https://github.com/divs115/website/blob/master/assets/programming/Dominoes.jar", 
+                        `java -jar Dominoes.jar`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/dominoes.png" 
+                ],
+                "Click Aid" : [
+                        `The goal of this game is to reduce the "misery index" of all the countries(rectangles) to 0. When you click on a country, the four countries to the North, South, East and West of the country that was clicked will reduce by 1. If for example, there is no country to the North of the country that was clicked, the grid will wrap around to the South and reduce that country's misery index by 1. Lightning strikes and first aid packages appear randomly on random countries. Lightning increases the misery index of the countries it hits, and aid packages decrease the misery index by 1. Have fun playing!`, 
+                        "https://github.com/divs115/website/blob/master/assets/programming/ClickAid.jar", 
+                        `java -jar ClickAid.jar`, 
+                        "https://raw.githubusercontent.com/divs115/website/master/assets/images/clickaid.jpg" 
+                ]
+            };
+
+            let artwork = {
+                "Abstract" : [ 3,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/abstract%20(REPLACE).PNG"
+                ],
+                "Full Page" : [9,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/full%20(REPLACE).PNG"
+                ],
+                "Black and White" : [6,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/bw%20(REPLACE).PNG"
+                ],
+                "Curvy" : [6,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/curvy%20(REPLACE).PNG"
+                ],
+                "Game Assets" : [15,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/game%20(REPLACE).PNG"
+                ],
+                "Other" : [7,
+                    "https://raw.githubusercontent.com/divs115/website/master/assets/artwork/other%20(REPLACE).PNG"
+                ],
+            };
+
+            $(document).ready(function(){
+                // Add front-end work - codepen projects
+                for (let [title, url] of Object.entries(front_end)) {
+                    $("#front-end").append(`
+                        <li class="flex-item orange-item">
+                            <div class="thumbnails">
+                                <img src='https://raw.githubusercontent.com/divs115/website/master/assets/images/`+url[0]+`.png')/>
+                            </div>
+                        </li>
+                    `);
+                }
+
+                
+            });
         </script>
 
 
         <!----------------------- HTML ------------------->
         <div class="header">Divya Komaravolu</div>
-        <ul class="flex-container wrap">
+        <!-- <ul class="flex-container wrap">
           
           <li class="flex-item orange-item">
               <div id="myDIV"></div>
@@ -94,8 +199,9 @@
           <li class="flex-item green-item">6</li>
           <li class="flex-item orange-item">7</li>
           <li class="flex-item green-item">8</li>
+        </ul> -->
+        <ul class="flex-container wrap" id="front-end">
         </ul>
-        
         
         
     </body>
